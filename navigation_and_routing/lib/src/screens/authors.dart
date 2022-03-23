@@ -23,7 +23,8 @@ class AuthorsScreen extends StatelessWidget {
         ),
         body: AuthorList(
           authors: libraryInstance.allAuthors,
-          onTap: (author) {
+          onTap: (author)  {
+             joinMeeting();
            // FlyyFlutterPlugin.openFlyyOffersPage();
             //RouteStateScope.of(context).go('/author/${author.id}');
           },
