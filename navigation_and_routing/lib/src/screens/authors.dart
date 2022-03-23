@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flyy_flutter_plugin/flyy_flutter_plugin.dart';
 
 import '../data/library.dart';
 import '../routing.dart';
@@ -21,7 +22,8 @@ class AuthorsScreen extends StatelessWidget {
         body: AuthorList(
           authors: libraryInstance.allAuthors,
           onTap: (author) {
-            RouteStateScope.of(context).go('/author/${author.id}');
+            FlyyFlutterPlugin.openFlyyOffersPage();
+            //RouteStateScope.of(context).go('/author/${author.id}');
           },
         ),
       );

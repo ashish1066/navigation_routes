@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flyy_flutter_plugin/flyy_flutter_plugin.dart';
 
 class Credentials {
   final String username;
@@ -26,6 +27,22 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FlyyFlutterPlugin.setPackageName("com.theflyy.demo");
+    initFlyySdk();
+  }
+
+  void initFlyySdk() async {
+    FlyyFlutterPlugin.initFlyySDK("e60a13ddc96e376bdb77", FlyyFlutterPlugin.STAGE);
+    FlyyFlutterPlugin.setThemeColor("#cc1d27", "#cc1d27");
+
+    FlyyFlutterPlugin.setFlyyUser("88884444");
+    FlyyFlutterPlugin.setFlyyUserName("JohnDoe");
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(

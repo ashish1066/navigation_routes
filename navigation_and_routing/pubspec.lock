@@ -113,6 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  eventify:
+    dependency: transitive
+    description:
+      name: eventify
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -149,6 +156,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flyy_flutter_plugin:
+    dependency: "direct main"
+    description:
+      name: flyy_flutter_plugin
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.14"
   frontend_server_client:
     dependency: transitive
     description:
