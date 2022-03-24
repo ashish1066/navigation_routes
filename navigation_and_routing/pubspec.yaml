@@ -15,7 +15,6 @@ dependencies:
   url_launcher: ^6.0.0
   url_strategy: ^0.2.0
   flyy_flutter_plugin: ^1.1.14
-  jitsi_meet: ^4.0.0
   window_size:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
