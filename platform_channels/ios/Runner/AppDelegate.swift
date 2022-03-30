@@ -7,6 +7,9 @@ import Flutter
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
+private let FLYY_PACKAGE_NAME = "flyy_package_name";
+private let FLYY_INIT = "flyy_init";
+private let FLYY_OPEN_OFFERS_SCREEN = "flyy_open_offers_screen";
     override func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -21,6 +24,34 @@ import Flutter
             }
             
             switch call.method {
+            case self.FLYY_PACKAGE_NAME:
+                        guard let args = call.arguments else {
+                            return
+                        }
+                        if let methodArgs = args as? [String: Any],
+                           let packageName = methodArgs["package-name"] as? String {
+                            Flyy.sharedInstance.setPackage(packageName: packageName)
+                        } else {
+                            result(FlutterError(code: "-1", message: "iOS could not extract " +
+                                                    "flutter arguments in method: (sendParams)", details: nil))
+                        }
+                        break;
+             case self.FLYY_INIT:
+                        guard let args = call.arguments else {
+                            return
+                        }
+                        if let methodArgs = args as? [String: Any],
+                           let environment = methodArgs["environment"] as? Int,
+                           let partnerToken = methodArgs["partner-token"] as? String {
+                            Flyy.sharedInstance.initSDK(partnerToken: partnerToken, environment: environment)
+                        } else {
+                            result(FlutterError(code: "-1", message: "iOS could not extract " +
+                                                    "flutter arguments in method: (sendParams)", details: nil))
+                        }
+                        break;
+            case self.FLYY_OPEN_OFFERS_SCREEN:
+                        Flyy.sharedInstance.openOffersPage()
+                        break;
             case "increment":
                 result(count + 1)
             case "decrement":
